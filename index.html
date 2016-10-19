@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+  </head>
+  <body>
+  	<button id="test" class="btn btn-default">Test</button>
+
+     <div class="container">
+
+     <!-- inizio login form -->
+     	<div id="login">
+	     	<div class="row">
+		     	<div class="" id="login-modal">
+		    	  <div class="modal-dialog">
+						<div class="loginmodal-container">
+							<h1>Accedi al tuo account</h1><br>
+							<div id="alert"></div>
+						  
+							<input type="text" name="user" placeholder="Username">
+							<input type="password" name="pass" placeholder="Password">
+							<button name="login" class="login loginmodal-submit" disabled="disabled">Login</button>
+						  
+						</div>
+					</div>
+				  </div>
+			</div>
+     	</div>
+     <!-- fine login form -->
+
+
+     <!-- inizio app -->
+     	<div id="app">
+         <div class="row">
+             <div class="col-sm-12">
+					
+					<nav class="navbar navbar-default">
+					  <div class="container-fluid">
+					    <!-- Brand and toggle get grouped for better mobile display -->
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					      <a class="navbar-brand" href="#">My rubrica</a>
+					    </div>
+
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					      <ul class="nav navbar-nav navbar-right">					        
+					        <li class="dropdown">
+					          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ciao, <span id="utente"></span><span class="caret"></span></a>
+					          <ul class="dropdown-menu">
+					            <li><a id="logout" href="#">Esci</a></li>					            
+					          </ul>
+					        </li>
+					      </ul>
+					    </div><!-- /.navbar-collapse -->
+					  </div><!-- /.container-fluid -->
+					</nav> 
+
+
+
+
+
+
+                <h3>Lista contatti</h3>
+                <button id="btn_add" class="btn btn-default" data-toggle="modal" data-target="#myModal">Aggiungi Contatto</button>
+                <button id="btn_maschi" class="btn btn-default" data-val="1">Nascondi maschi</button>
+                <button id="btn_femmine" class="btn btn-default" data-val="1">Nascondi femmine</button>
+                <table id="tabella_contatti" class="table">
+                    <thead>
+                        <tr>
+                            <th>Cognome</th>
+                            <th>Nome</th>
+                            <th>Telefono</th>
+                            <th>Modifica</th>
+                            <th>Cancella</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tb_contatti"></tbody>
+                </table>
+                <div id="tabella_vuota"></div>
+            
+
+            
+
+                							<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h3 class="modal-title" id="myModalLabel">Scheda contatto</h3>
+			      </div>
+			      <div class="modal-body">
+			        
+					<table class="table table-hover">
+                        <tr><td></td><td><input id="dettaglio_id" type="text" /></td>
+                        </tr>
+                        <tr>
+                        	<td>Nome:</td><td><input id="dettaglio_nome" type="text" /></td>
+                        	</tr>
+                        <tr>
+                        	<td>Cognome:</td><td><input id="dettaglio_cognome" type="text" /></td>
+                        	</tr>
+                        <tr>
+                        	<td>Telefono:</td><td><input id="dettaglio_telefono" type="text" /></td>
+                        	</tr>
+                        <tr>
+                        	<td>
+                        		<label for="radioM">Sesso</label>
+                        	</td>
+                        	<td>
+                        		<input id="radioM" type="radio" name="sesso" value="M" /> Maschile
+                        		<input id="radioF" type="radio" name="sesso" value="F" /> Femminile
+                        	</td>
+                        </tr>
+                        <tr>
+                        	<td>Note</td>
+                        	<td><textarea id="dettaglio_note"></textarea></td>
+                        </tr>
+                    </table>
+
+			      </div>
+			      <div class="modal-footer">
+			      	<button id="btn_save" type="button" class="btn btn-primary">Salva contatto</button>
+			        <button id="btn_close" type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+          </div>  
+        </div>
+       <!-- fine app -->
+
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-loading-overlay-1.4.1/src/loadingoverlay.min.js"></script>
+    <script type="text/javascript" src="js/funzioni_rubrica.js"></script>
+    <script type="text/javascript">
+
+    	var endpoint = 'http://199.195.116.98/~arto23415ocampus/wp-json/artoo/v1/';
+        var persone;
+        $(document).ready(function(){
+
+        	checkAuth();
+
+	        $('#btn_add').on('click', aggiungiContatto);
+	        $('#btn_save').on('click', salvaContatto);
+	        $('#btn_close').on('click', chiudiScheda);
+	        
+	        $('#btn_maschi').on('click', function() {
+	        	
+	        	if ($(this).data('val') == 1) {
+	        		$(this).text('Mostra maschi');
+	        		$(this).data('val', 0);
+	        	} else {
+	        		$(this).text('Nascondi maschi');
+	        		$(this).data('val', 1);
+	        	}
+
+	        	var flag_maschi = $(this).data('val');
+	        	mostraNascondi('sfondoTabella_M', flag_maschi);
+
+	        });
+
+	        $('#btn_femmine').on('click', function() {
+	        	
+	        	if ($(this).data('val') == 1) {
+	        		$(this).text('Mostra femmine');
+	        		$(this).data('val', 0);
+	        	} else {
+	        		$(this).text('Nascondi femmine');
+	        		$(this).data('val', 1);
+	        	}
+
+	        	var flag_femmine = $(this).data('val');
+
+
+	        	mostraNascondi('sfondoTabella_F', flag_femmine);
+
+
+	        	
+	        });
+
+	        function mostraNascondi(nomeClasse, flag) {
+	        	var righe = $.find('#tb_contatti tr');
+
+	        	$.each(righe, function(){
+
+	        		if ($(this).prop('class') == nomeClasse) {
+	        			(flag == 0) ? $(this).hide() : $(this).show();
+	        		}
+	        	})
+	        };
+	        
+	        $(document).on('click', 'a.delete',  function(){
+	        	var id = $(this).data('id');
+	        	cancellaContatto(id);
+	        });
+	        $(document).on('click', 'a.edit', function(){
+	        	var id = $(this).data('id');
+	        	vediDettaglio(id);
+	        });
+	        
+	        caricaContatti();
+
+	        $('#test').on('click', function(){
+	        	($('#app').css('display') == 'none') ? $('#app').show() : $('#app').hide();
+	        	($('#login').css('display') == 'none') ? $('#login').show() : $('#login').hide();
+	        });
+
+	        $('#login input').on('keydown', function(event){
+	        	var usr = $('#login input[name="user"]').val();
+	        	var pwd = $('#login input[name="pass"]').val();
+
+	        	if (usr != '' && pwd != '') {
+	        		$('#login button').prop('disabled', false);
+	        		if (event.which == 13 || event.ketCode == 13) {
+	        			$('#login button').trigger('click');
+	        		}
+	        	} else {
+	        		$('#login button').prop('disabled', true);
+	        	}
+	        	
+	        	 
+	        	$('#alert').html('').hide();
+
+
+	        });
+
+	        $('#login button').on('click', function(){
+
+                    $.LoadingOverlay("show", {
+                        image       : "",
+                        fontawesome : "fa fa-spinner fa-spin"
+                    });
+
+
+	        	$(this).prop('disabled', true).text('Accesso in corso...');
+
+	        	var endpoint = 'http://199.195.116.98/~arto23415ocampus/wp-json/artoo/v1/'; 
+	        	var url = endpoint + 'utenti/login';
+	        	var usr = $('#login input[name="user"]').val();
+	        	var pwd = $('#login input[name="pass"]').val();
+	        	var data = {
+	        		login : usr,
+	        		passwd : pwd
+	        	};
+
+	        	$.ajax({
+	        		url : url,
+	        		method: 'POST',
+	        		data : 'data=' + JSON.stringify(data),
+
+	        		success: function(response){
+	        			if (response.success == true) {
+	        				if (response.error != '') {
+	        					$('#login button').prop('disabled', true).text('Login');
+	        					$('#login input').val('');
+	        					$('#alert').html(response.error).show();
+
+	        				} else {
+	        					localStorage.setItem('auth', true);
+	        					localStorage.setItem('usrData', JSON.stringify(response.data));
+	        					checkAuth();
+	        				}
+
+	        			}
+	        		},
+
+	        		error: function(response){
+	        			var error = JSON.parse(response.responseText).message();
+	        			$('#alert').html(error).show();
+	        		}
+	        	});
+
+	        });
+	        function checkAuth() {
+	        	if (localStorage.getItem('auth') == 'true') {
+	        		var usrData = JSON.parse(localStorage.getItem('usrData'));
+	        		var utente = usrData.nome + ' ' + usrData.cognome;
+	        		$('#utente').text(utente);
+	        		$('#login').hide();
+	        		$('#app').show();
+	        		$.LoadingOverlay('hide');
+
+
+	        	} else {
+	        		$('#login input').val('');
+	        		$('#login button').prop('disabled', true).text('Login');
+	        		$('#login').show();
+	        		$('#app').hide();
+	        	}
+	        }
+
+	        $('#logout').on('click', function(){
+	        	localStorage.clear();
+	        	checkAuth();
+	        });
+    	});
+    		
+
+
+
+    </script>
+  </body>
+</html>

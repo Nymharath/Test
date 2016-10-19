@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Prova Js</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+
+      <table class="table table-hover">
+
+        <thead id="tableHeader"></thead>
+
+        <tbody id="dati"></tbody>
+
+      </table>
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+       /* var lista = [122, 352, 9845, 2824, 19];
+    var somma = 0;
+    var prodotto = 1
+    for (var i = 0; i < lista.length; i++) {
+      somma += (lista[i]);
+      prodotto *= (lista[i]);
+    }
+    var media = somma / lista.length;
+    document.write(somma + " - " + prodotto + " - " + media);
+    testo = lista.join("</li><li>");
+    testo = "<ul><li>" + testo + "</li></UL>";
+    document.write(testo);*/
+
+    
+    var formattaData = function(date) {
+      return date.split("-").reverse().join("/");
+    }
+    
+  var cols = [
+  {nomevar: "nome", etichetta: "Nome"},
+  {nomevar: "cogn", etichetta: "Cognome"},
+  {nomevar: formattaData("datanasc"), etichetta: "Data di nascita"},      /*NON FUNZIONA!!!*/
+  {nomevar: "id", etichetta: "ID"}
+  ];
+
+
+
+  var anag01 = 
+    [
+      {"id":1,"nome":"AHMED","cogn":"NADIR","datanasc":"1983-01-02"},
+      {"id":5,"nome":"GIOVANNI","cogn":"BONACINI","datanasc":"1956-12-01"},
+      {"id":6,"nome":"GIOVANNI","cogn":"DE GREGORIO","datanasc":"1955-06-18"},
+      {"id":7,"nome":"MICHELANGELO","cogn":"DROMI","datanasc":"1975-01-01"},
+      {"id":8,"nome":"ROBERTA","cogn":"SIMONELLA","datanasc":"1962-10-01"},
+      {"id":9,"nome":"ANTONIO GIUSEPPE","cogn":"COL","datanasc":"1955-01-31"},
+      {"id":10,"nome":"PIETRO","cogn":"PRINCIPE", "datanasc":"1956-07-02"}
+    ];
+  
+  var header = "<tr>";
+  for (var i = 0; i < cols.length; i++) {
+
+      header += "<th>" + cols[i].etichetta + "</th>";
+      
+  }
+  
+  header += "</tr>";
+  document.getElementById("tableHeader").innerHTML = header;
+
+  var testo = "";
+  for (var i = 0; i < anag01.length; i++) {
+      
+      testo += "<tr>";
+          
+          for (var j = 0; j < cols.length; j++) {
+              
+              testo += "<td>" + anag01[i][cols[j].nomevar] + "</td>";
+          }
+      testo += "</tr>";
+
+  }
+  document.getElementById("dati").innerHTML = testo;
+
+
+
+
+
+
+ /* var testo = "";
+  for (var i = 0; i < anag01.length; i++) {
+
+      testo += 
+        "<tr><td>" + 
+        anag01[i].id + "</td><td>" + 
+        anag01[i].nome + "</td><td>" +
+        anag01[i].cogn + "</td><td>" +
+        formattaData(anag01[i].datanasc) + "</td>" +
+        "</tr>";
+      
+  }*/
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+      
+    
+  </body>
+</html>

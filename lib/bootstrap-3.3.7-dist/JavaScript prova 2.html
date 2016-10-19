@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Prova Js</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="cambia()">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-8">
+          
+          <select id="tipo" onchange="cambia()">
+            <option value="00">...</option>
+            <option value="q">Quadrato</option>
+            <option value="c">Cerchio</option>
+            <option value="r">Rettangolo</option>
+            <option value="t">Triangolo</option>
+          </select>
+
+          <br/>
+
+          <label for="numero" id="input"></label>
+          <input id="numero" type="number" />
+
+          <div id="secondario">
+            <label for="altezza" id="inputAltezza">Altezza</label>
+            <input id="altezza" type="number" />
+
+          </div>
+
+          <button onclick="calcola()" class="btn btn-primary">Calcola</button>
+        
+        </div>
+        
+        <div class="col-md-4">
+          
+          <p id="risultato"></p>
+        
+        </div>
+      
+      </div>    
+    
+    </div>
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+    
+    function cambia() {
+      var tipo = document.getElementById("tipo").value;
+      if (tipo == "00") {
+        etichetta = "";
+        document.getElementById("secondario").style.display = "none";
+      }
+      if (tipo == "q") {
+        etichetta = "Lato";
+        document.getElementById("secondario").style.display = "none";
+      }
+      if (tipo == "c") {
+        etichetta = "Raggio";
+        document.getElementById("secondario").style.display = "none";
+      }
+      if (tipo == "r") {
+        etichetta = "Base"
+        document.getElementById("secondario").style.display = "block";
+      }
+      if (tipo == "t") {
+        etichetta = "Base"
+        document.getElementById("secondario").style.display = "block";
+      }
+    document.getElementById("input").innerHTML = etichetta;
+    }
+
+    function calcola() {
+      var dimensione1 = document.getElementById("numero").value;
+      var tipo = document.getElementById("tipo").value;
+      var dimensione2 = document.getElementById("altezza").value;
+      if (tipo == "q") {
+        var area = dimensione1 * dimensione1;  
+              document.getElementById("risultato").innerHTML += "Il quadrato è <strong>" + area + "</strong>" + "<br />";
+
+      }
+      if (tipo == "c") {
+        var area = Math.PI * dimensione1 * dimensione1;
+              document.getElementById("risultato").innerHTML += "Il cerchio è <strong>" + area + "</strong>" + "<br />";
+
+      }
+      if (tipo == "r") {
+        var area = dimensione1 * dimensione2;
+              document.getElementById("risultato").innerHTML += "L'area del rettangolo è <strong>" + area + "</strong>" + "<br />";
+
+      }
+      if (tipo == "t") {
+        var area = (dimensione1 * dimensione2) / 2;
+              document.getElementById("risultato").innerHTML += "L'area del triangolo è <strong>" + area + "</strong>" + "<br />";
+
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Prova Js</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+
+     
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/persona.js"></script>                       <!-- IMPORTANTE -->
+    <script type="text/javascript">
+
+    persona.prototype.nazionalita = "";
+
+    var amico = new persona("Marco", "Battaglino", "1985-05-16", "A479");
+    amico.nazionalita = "Italiana";
+    console.log(amico);
+
+
+
+    console.log(amico.nomeCognome() + " " + amico.calcolaEta());
+
+    console.log(new Date().setFullYear(1985, 4, 16));
+
+    var oggi = new Date;
+    oggi.setDate(oggi.getDate() + 30);
+    console.log(oggi);
+    console.log(amico.giornivissuti());
+
+    Date.prototype.formattaData = function() {
+      
+      return ((this.getDate() < 10) ? "0" : "")  
+      + this.getDate() 
+      + "/" 
+      + (((this.getMonth() + 1) < 10) ? "0" : "")
+      + (this.getMonth() + 1) 
+      + "/" 
+      + this.getFullYear(); 
+    }
+
+    console.log(new Date().formattaData());
+
+    </script>
+    
+      
+    
+  </body>
+</html>

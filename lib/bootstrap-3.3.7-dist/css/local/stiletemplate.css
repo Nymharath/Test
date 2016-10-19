@@ -1,0 +1,55 @@
+/*Dichiarazioni*/
+@font-face {
+	font-family: SourceSansProRegular;
+	src: url(../font/SourceSansPro-Regular.ttf);
+} 
+@font-face {
+	font-family: SourceSansProRegular;
+	src: url(../font/SourceSansPro-Italic.ttf);
+	font-style: italic;
+}
+@font-face {
+	font-family: SourceSansProRegular;
+	src: url(../font/SourceSansPro-Bold.ttf);
+	font-weight: bold;
+}
+body {
+	background-image: url("../../img/dark.jpg");
+}
+
+.container-fluid {
+	opacity: .9;
+}
+
+/*.logo {
+	background-image: url("../../img/Protoss-250x250.png");
+	width: 250px;
+	height: 250px;
+}
+*/
+.menu {
+	background-color: black;
+	color: white;
+	text-align: right;
+}
+
+.corpo {
+	background-color: black;
+	color: white;
+}
+.corpo h1 {
+	font-family: SourceSansProRegular;
+	font-weight: bold;
+}
+
+.correlato {
+	background-color: black;
+	color: white;
+}
+
+.footer {
+	background-color: yellow;
+}
+.table-hover tbody tr:hover td {
+	background-color: orange;
+} 

@@ -1,0 +1,5 @@
+A:hover, A:link {text-decoration: none; color: black;}
+
+
+#cathegory {background-color: #eee; padding: 15px 3px; font-weight: bold;}
+#courseIdRow {visibility: hidden;}

@@ -1,0 +1,26 @@
+A, A:hover {cursor: pointer; text-decoration: none; color: black;}
+A:visited, A:active {color: grey;}
+
+.black {color: black;}
+.gold {color: gold;}
+.green {color: green;}
+
+#tb_iphone7 IMG {height: 120px;}
+
+
+#dettaglio {visibility: hidden;}
+#dettaglio {display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;}
+#dettaglio BUTTON {margin-top: 25px;}
+
+#dettaglio_foto {display: flex; justify-content: center;}
+#dettaglio_foto IMG {height: 320px;}
+#dettaglio_foto IMG:last-child {display: none;}
+#dettaglio_foto:hover IMG:first-child {display: none;}
+#dettaglio_foto:hover IMG:last-child {display: block;}
+
+
+
+
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+	#tb_iphone7 TD {background-color: red;}
+} 

@@ -1,0 +1,20 @@
+
+
+.navbar-header {height: 116px;}
+.navbar {width: 100%; background: linear-gradient(to right, white, grey, black);}
+.navbar-nav {float: right;}
+
+
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    width: 100%;
+}

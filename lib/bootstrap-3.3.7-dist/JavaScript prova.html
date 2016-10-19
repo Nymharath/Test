@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Prova Js</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  
+
+    <script type="text/javascript">
+      
+      a = 1;                                /*Si usa "var" per dichiarare una variabile locale*/
+      a = a + 10;
+      console.log(a);
+
+      function calcolaPerimetro(b, h) {     /*Costruisco la funzione inserendo i valori di input*/
+        var p = 2 * b + 2 * h;                  /*Dichiaro il valore che la funzione restituirà*/
+        return p;
+      }
+
+      function calcolaArea(b, h) {
+        var a = b * h;
+        return a;
+      }
+      function stampaOggetto(oggetto) {                         /*nel ciclo for posso ciclare gli elementi di un "oggetto" generico chiamato oggetto*/
+        testo = "<ul>";                                         /*creo una variabile "testo" e le dico di ospitare una lista*/
+        for (x in oggetto) {                                    /*nel ciclo ordino con i tag <li> gli elementi dell'oggetto generico giá messi a coppie*/
+          testo += "<li>" + x + ": " + oggetto[x] + "</li>";    /*fuori dal ciclo aggiorno la variabile in modo che chiuda la lista*/
+        }                                                       /*fuori dal ciclo e dentro la funzione, uso il document.write per scrivere il contenuto della variabile testo*/
+      testo += "</ul>";                                         
+      
+      }
+
+      function calcolo(oggetto) {
+        var perimetro = 2 * oggetto.base + 2 * oggetto.altezza;
+        var area = oggetto.base * oggetto.altezza;
+        return {p: perimetro, a: area};
+      }
+
+      function geometria(figura) {
+        if (figura.tipo == "rettangolo") {
+          var area = figura.base * figura.altezza;
+          var perimetro = (figura.base + figura.altezza) *2;
+        }
+        if (figura.tipo == "triangolo") {
+          var area = figura.base * figura.altezza / 2;
+          var perimetro = -1;
+        }
+        if (figura.tipo == "cerchio") {
+          var area = figura.raggio * figura.raggio * Math.PI;
+          var perimetro = 2 * Math.PI * figura.raggio;
+        }
+        return {vA: area, vP: perimetro};
+      }
+
+
+
+      var r1 = {
+        base: "1582",
+        altezza: "3852",
+        tipo: "rettangolo"
+      };
+
+      var t1 = {
+        base: "5894",
+        altezza: "19902",
+        tipo: "triangolo"
+      };
+      var c1 = {
+        raggio: "9945",
+        tipo: "cerchio"
+      };
+
+      
+
+
+
+      perimetro = calcolaPerimetro(12,5);
+      perimetro2 = calcolaPerimetro(123,4);
+      area = calcolaArea(12,5);
+      area2 = calcolaArea(123,4);
+      display1 = 
+        "Perimetro 1 = " + perimetro + "<br/>" + 
+        "Perimetro 2 = " + perimetro2 + "<br/>" + "<br/>" + 
+        "Area 1 = " + area + "<br/>" + 
+        "Area 2 = " + area2;
+
+      console.log("Area 1 = " + area);
+      console.log("Perimetro 1 = " + perimetro);
+      
+
+      nymharath = {                     /*nymharath é una variabile*/
+        nome: "Marco",                  /*all'interno posso mettere sottovariabili */
+        cognome: "Battaglino",
+        data: "1985-05-16",
+        sesso: "M"
+      };
+
+      console.log(nymharath.nome);
+      console.log(nymharath.cognome);
+      console.log(nymharath.data);
+      console.log(nymharath);
+      
+    
+      lista = "<p><ul><li>" + nymharath.nome + "</li>";
+      lista += "<li>" + nymharath.cognome + "</li>";            /*+= aggiorna il contenuto di una variabile*/
+      lista += "<li>" + nymharath.data + "</li></ul></p>";
+      
+display3 = "";
+      for (x in nymharath) {
+        display3 += x + ": " + nymharath[x] + "<br/>";
+      }
+
+      y = "nome";
+      stampaOggetto(nymharath);
+
+      rettangolo1 = calcolo(r1);
+
+      display2 = 
+        "Perimetro: " + rettangolo1.p + "<br/>" +
+        "Area: " + rettangolo1.a + "<br/>";
+
+      rettangolo2 = geometria(r1);
+      triangolo2 = geometria(t1);
+      cerchio2 = geometria(c1);
+
+      display4 =
+        "Perimetro rettangolo: " + rettangolo2.vP + "<br/>" +
+        "Perimetro triangolo: " + triangolo2.vP + "<br/>" +
+        "Circonferenza: " + cerchio2.vP + "<br/>" + 
+        "Area rettangolo: " + rettangolo2.vA + "<br/>" + 
+        "Area triangolo: " + triangolo2.vA + "<br/>" + 
+        "Cerchio: " + cerchio2.vA;
+     
+
+
+
+      pagina =
+        "<h1>Esercizio 1:</h1>" +
+        "<p>" + testo + "</p>" + "<br/>" +
+        "<h1>Esercizio 2:</h1>" + 
+        "<p>" + display1 + "</p>" + "<br/>" +
+        "<h1>Esercizio 3:</h1>" + 
+        "<p>" + lista + "</p>" + "<br/>" +
+        "<h1>Esercizio 4:</h1>" + 
+        "<p>" + nymharath[y] + "</p>" + "<br/>" +
+        "<h1>Esercizio 5:</h1>" + 
+        "<p>" + display2 + "</p>" + "<br/>" +
+        "<h1>Esercizio 6:</h1>" + 
+        "<p>" + display3 + "</p>" + "<br/>" +
+        "<h1>Esercizio 7:</h1>" + 
+        "<p>" + display4 + "</p>" + "<br/>";
+
+      document.write(pagina);
+      
+
+
+
+
+
+    </script>
+
+
+
+
+  </body>
+</html>
